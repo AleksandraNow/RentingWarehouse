@@ -44,4 +44,13 @@ public class WarehouseReport {
         return null;
     }
 
+    public WarehouseSpace getWarehouseById(int id) {
+        for (WarehouseSpace warehouseSpace : this.warehouseSet) {
+            if (warehouseSpace.getWarehouseId() == id) {
+                return warehouseSpace;
+            }
+        }
+        return null;
+    }
+
 }

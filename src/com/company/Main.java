@@ -60,6 +60,23 @@ public class Main {
                         }
 
                     }
+                    break;
+                case 3:
+                    if(selectedPerson == 0) {
+                        System.out.println("W pierwszej kolejności należy wybrać najemcę");
+                    } else {
+                        System.out.println("wybierz pomieszczenie wynajmowane przez najemce");
+                        for (WarehouseSpace warehouseSpace : warehouseReport.getWarehouseSet()) {
+                            if (warehouseSpace.getPerson() != null && warehouseSpace.getPerson().getPersonId() == selectedPerson) {
+                                System.out.println(warehouseSpace.getWarehouseId() + "-" + warehouseSpace.getArea());
+                            }
+                        }
+                        selectedWarehouse = scanner.nextInt();
+                        if (selectedWarehouse == 0)
+                            System.exit(0);
+                        warehouseReport.getWarehouseById(selectedWarehouse).warehouseContent(false);
+                        break;
+                    }
             }
 
         }
