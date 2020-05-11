@@ -71,14 +71,13 @@ public class WarehouseSpace {
         return area;
     }
 
-    //wynejm pomieszczenia
-    public void addPerson(Person person) throws WarehouseIsRentedException {
-        if (this.isAvailable == false) {
-            throw new WarehouseIsRentedException("warehouse is already rented");
-        } else {
-            this.person = person;
-            this.isAvailable = false;
-        }
+    public void rentLocker(Person person) throws WarehouseIsRentedException {
+        if(!this.isAvailable)
+            throw new WarehouseIsRentedException("Locker is unavailable due to renovation");
+        if(this.person != null)
+            throw new WarehouseIsRentedException("Locker id unavailable because is occupied by " + this.person.toString());
+        this.person = person;
+        this.isAvailable = false;
     }
 
     //pobranie wszystkich przedmiotów z listy w pomieszczeniu
@@ -113,6 +112,19 @@ public class WarehouseSpace {
 
     public void warehouseInfo() {
         System.out.println("pomieszczenie o objętości: " + this.getArea()) ;
+    }
+
+    public static void createWarehouse(WarehouseState warehouseState) {
+        WarehouseSpace warehouseSpace1 = new WarehouseSpace(120);
+        WarehouseSpace warehouseSpace2 = new WarehouseSpace(85);
+        WarehouseSpace warehouseSpace3 = new WarehouseSpace(460);
+        WarehouseSpace warehouseSpace4 = new WarehouseSpace(30,2,3);
+        WarehouseSpace warehouseSpace5 = new WarehouseSpace(80,2,1);
+        warehouseState.addWarehouse(warehouseSpace1);
+        warehouseState.addWarehouse(warehouseSpace2);
+        warehouseState.addWarehouse(warehouseSpace3);
+        warehouseState.addWarehouse(warehouseSpace4);
+        warehouseState.addWarehouse(warehouseSpace5);
     }
 
 

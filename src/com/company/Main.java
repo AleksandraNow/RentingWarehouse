@@ -14,8 +14,10 @@ public class Main {
 
         WarehouseState warehouseState = new WarehouseState("duży magazyn");
 
+
+        WarehouseSpace.createWarehouse(warehouseState);
         warehouseState.createPerson();
-        warehouseState.createWarehouse(warehouseState);
+
 
         System.out.println("Witaj w magazynie: " + warehouseState.getWarehouseSetName());
 
@@ -59,9 +61,11 @@ public class Main {
                         System.out.println("Adrees: " + person.getAddress());
                         System.out.println("Pomieszczenia:");
 
+                        selectedWarehouseByPerson = 0;
+
                         for (WarehouseSpace warehouseSpace : warehouseState.getWarehouseSet()) {
-                            if (warehouseSpace != null && warehouseSpace.getPerson().getPersonId() == selectedPerson) {
-                                System.out.println("id" + warehouseSpace.getWarehouseId() + "objetosc" + warehouseSpace.getArea());
+                            if (warehouseSpace.getPerson() != null && warehouseSpace.getPerson().getPersonId() == selectedPerson) {
+                                System.out.println("id: " + warehouseSpace.getWarehouseId() + " objetosc: " + warehouseSpace.getArea());
                                 selectedWarehouseByPerson++;
                             }
                         }
@@ -271,7 +275,7 @@ public class Main {
 
                         selectedWarehouse = scanner.nextInt();
                         try {
-                            warehouseState.getWarehouseById(selectedWarehouse).addPerson(warehouseState.getPersonById(selectedPerson));
+                            warehouseState.getWarehouseById(selectedWarehouse).rentLocker(warehouseState.getPersonById(selectedPerson));
 
                         } catch (WarehouseIsRentedException e){
                             System.out.println(e.getMessage());
