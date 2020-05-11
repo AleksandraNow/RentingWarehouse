@@ -6,13 +6,13 @@ public class ThingSize {
     private int lenght;
     private int height;
     private int size;
-//
-//    public ThingSize(int width, int lenght, int height) {
-//        this.width = width;
-//        this.lenght = lenght;
-//        this.height = height;
-//        this.size = width * lenght * height;
-//    }
+
+    public ThingSize(int width, int lenght, int height) {
+        this.width = width;
+        this.lenght = lenght;
+        this.height = height;
+        this.size = width * lenght * height;
+    }
 
     public ThingSize(int size) {
         this.size = size;

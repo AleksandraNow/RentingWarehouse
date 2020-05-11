@@ -3,7 +3,6 @@ package com.company;
 import com.company.exceptions.TooManyThingsException;
 import com.company.exceptions.WarehouseIsRentedException;
 
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class WarehouseSpace {
@@ -94,6 +93,7 @@ public class WarehouseSpace {
         return isAvailable;
     }
 
+
     //wyswitlenie zawartosci pomieszczenia
     public void warehouseContent(boolean thingId) {
         Set <Integer> indexes = things.keySet();
@@ -118,17 +118,17 @@ public class WarehouseSpace {
         System.out.println(this.lockerId + this.getArea());
     }
 
-    public static void createWarehouse(WarehouseReport warehouseReport) {
+    public static void createWarehouse(WarehouseState warehouseState) {
         WarehouseSpace warehouseSpace1 = new WarehouseSpace(120);
         WarehouseSpace warehouseSpace2 = new WarehouseSpace(85);
         WarehouseSpace warehouseSpace3 = new WarehouseSpace(460);
         WarehouseSpace warehouseSpace4 = new WarehouseSpace(30,2,3);
         WarehouseSpace warehouseSpace5 = new WarehouseSpace(80,2,1);
-        warehouseReport.addWarehouse(warehouseSpace1);
-        warehouseReport.addWarehouse(warehouseSpace2);
-        warehouseReport.addWarehouse(warehouseSpace3);
-        warehouseReport.addWarehouse(warehouseSpace4);
-        warehouseReport.addWarehouse(warehouseSpace5);
+        warehouseState.addWarehouse(warehouseSpace1);
+        warehouseState.addWarehouse(warehouseSpace2);
+        warehouseState.addWarehouse(warehouseSpace3);
+        warehouseState.addWarehouse(warehouseSpace4);
+        warehouseState.addWarehouse(warehouseSpace5);
     }
 
 

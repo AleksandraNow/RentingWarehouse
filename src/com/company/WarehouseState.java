@@ -2,8 +2,9 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-public class WarehouseReport {
+public class WarehouseState {
 
     private String warehouseSetName;
 
@@ -11,7 +12,7 @@ public class WarehouseReport {
 
     private List<Person> listPerson = new ArrayList<Person>();
 
-    public WarehouseReport(String warehouseSetName) {
+    public WarehouseState(String warehouseSetName) {
         this.warehouseSetName = warehouseSetName;
     }
 
@@ -51,6 +52,21 @@ public class WarehouseReport {
             }
         }
         return null;
+    }
+
+
+    public void createPerson() {
+        Person person1 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
+        Person person2 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
+        Person person3 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
+        Person person4 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
+        Person person5 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
+        this.addPerson(person1);
+        this.addPerson(person2);
+        this.addPerson(person3);
+        this.addPerson(person4);
+        this.addPerson(person5);
+
     }
 
 }
