@@ -69,4 +69,17 @@ public class WarehouseState {
 
     }
 
+    public static void createWarehouse(WarehouseState warehouseState) {
+        WarehouseSpace warehouseSpace1 = new WarehouseSpace(120);
+        WarehouseSpace warehouseSpace2 = new WarehouseSpace(85);
+        WarehouseSpace warehouseSpace3 = new WarehouseSpace(460);
+        WarehouseSpace warehouseSpace4 = new WarehouseSpace(30,2,3);
+        WarehouseSpace warehouseSpace5 = new WarehouseSpace(80,2,1);
+        warehouseState.addWarehouse(warehouseSpace1);
+        warehouseState.addWarehouse(warehouseSpace2);
+        warehouseState.addWarehouse(warehouseSpace3);
+        warehouseState.addWarehouse(warehouseSpace4);
+        warehouseState.addWarehouse(warehouseSpace5);
+    }
+
 }

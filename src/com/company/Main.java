@@ -15,6 +15,7 @@ public class Main {
         WarehouseState warehouseState = new WarehouseState("duży magazyn");
 
         warehouseState.createPerson();
+        warehouseState.createWarehouse(warehouseState);
 
         System.out.println("Witaj w magazynie: " + warehouseState.getWarehouseSetName());
 
@@ -217,7 +218,7 @@ public class Main {
                                 }
                                 Thing thing = new Thing(thingName, thingSize);
                                 try{
-                                    warehouseState.getWarehouseById(selectedWarehouse).addThing(bike);
+                                    warehouseState.getWarehouseById(selectedWarehouse).addThing(thing);
                                 } catch (TooManyThingsException tooManyThingsException){
                                     System.out.println(tooManyThingsException);
                                 }

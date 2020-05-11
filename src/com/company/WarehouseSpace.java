@@ -14,10 +14,7 @@ public class WarehouseSpace {
     private Person person;
     private int spaceUsed = 0;
 
-
-
     private boolean isAvailable = true;
-    private static int lastLockerId = 1;
     private static int lastThingId = 1;
 
 
@@ -26,12 +23,12 @@ public class WarehouseSpace {
     private Map<Integer, Thing> things = new HashMap<Integer, Thing>();
 
     public WarehouseSpace(int area) {
-        this.lockerId = WarehouseSpace.lastLockerId++;
+        this.warehouseId = GenerateUniqueID.getUniqueID();
         this.area = area;
     }
 
     public WarehouseSpace(int length, int width, int height) {
-        this.lockerId = WarehouseSpace.lastLockerId++;
+        this.warehouseId = GenerateUniqueID.getUniqueID();
         this.area = length * width * height;
     }
 
@@ -115,21 +112,10 @@ public class WarehouseSpace {
     }
 
     public void warehouseInfo() {
-        System.out.println(this.lockerId + this.getArea());
+        System.out.println("pomieszczenie o objętości: " + this.getArea()) ;
     }
 
-    public static void createWarehouse(WarehouseState warehouseState) {
-        WarehouseSpace warehouseSpace1 = new WarehouseSpace(120);
-        WarehouseSpace warehouseSpace2 = new WarehouseSpace(85);
-        WarehouseSpace warehouseSpace3 = new WarehouseSpace(460);
-        WarehouseSpace warehouseSpace4 = new WarehouseSpace(30,2,3);
-        WarehouseSpace warehouseSpace5 = new WarehouseSpace(80,2,1);
-        warehouseState.addWarehouse(warehouseSpace1);
-        warehouseState.addWarehouse(warehouseSpace2);
-        warehouseState.addWarehouse(warehouseSpace3);
-        warehouseState.addWarehouse(warehouseSpace4);
-        warehouseState.addWarehouse(warehouseSpace5);
-    }
+
 
 
 }
