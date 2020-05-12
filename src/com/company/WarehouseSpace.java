@@ -44,9 +44,8 @@ public class WarehouseSpace {
         this.person = null;
     }
 
-    //dodanie rzeczy do pomieszczenia
     public void addThing(Thing thing) throws TooManyThingsException {
-        if (thing.getMaxSize() < this.getArea()) {
+        if(thing.getMaxSize() < this.getArea()) {
             this.things.put(lastThingId++, thing);
             spaceUsed += thing.getMaxSize();
         } else {

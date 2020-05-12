@@ -21,7 +21,7 @@ public class Thing {
     }
 
     public int getMaxSize() {
-        if (size1.getSize() > 0 && size2.getSize() > 0) {
+        if (size1.getSize() > 0 && size1 != null && size2.getSize() > 0 && size2!= null) {
             //math.max porówuje dwie wartosci i zwraca większą wartość
             return Math.max(size1.getSize(), size2.getSize());
         } else {

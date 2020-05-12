@@ -26,6 +26,7 @@ public class Main {
         int selectedPerson = 0;
         int selectedWarehouse = 0;
         int selectedWarehouseByPerson = 0;
+        int selectedPersonLockerCount = 0;
 
         while (true) {
             Scanner scanner = new Scanner(System.in);
@@ -61,12 +62,12 @@ public class Main {
                         System.out.println("Adrees: " + person.getAddress());
                         System.out.println("Pomieszczenia:");
 
-                        selectedWarehouseByPerson = 0;
+                        selectedPersonLockerCount = 0;
 
                         for (WarehouseSpace warehouseSpace : warehouseState.getWarehouseSet()) {
                             if (warehouseSpace.getPerson() != null && warehouseSpace.getPerson().getPersonId() == selectedPerson) {
                                 System.out.println("id: " + warehouseSpace.getWarehouseId() + " objetosc: " + warehouseSpace.getArea());
-                                selectedWarehouseByPerson++;
+                                selectedPersonLockerCount++;
                             }
                         }
 
@@ -121,7 +122,7 @@ public class Main {
                                 System.out.println("wybierz 0 jeseli chcesz podac objetośc a 1 jak chcesz podac 3 \" +\n" +
                                         "                                        \"wymiary");
                                 sizeType = scanner.nextInt();
-                                if (sizeType ==0) {
+                                if (sizeType == 0) {
                                     System.out.println("objetosc: ");
                                     String sizeString = scanner1.nextLine();
                                     thingSize = new ThingSize(Integer.parseInt(sizeString));
@@ -137,7 +138,7 @@ public class Main {
                                 }
                                 System.out.println("Typ silnika: 0 - DIESEL, 1 - GAS, 2 - PETROL, 3 - HYBRID");
                                 int CarEngineType = scanner.nextInt();
-                                Car car = new Car(thingName, thingSize, EngineType.values()[CarEngineType]);
+                                Car car = new Car(thingName, thingSize, EngineType.values()[CarEngineType]);;
                                 try {
                                     warehouseState.getWarehouseById(selectedWarehouse).addThing(car);
                                 } catch (TooManyThingsException tooManyThingsException) {
@@ -164,11 +165,13 @@ public class Main {
                                     length = scanner1.nextLine();
                                     System.out.println("podaj wysokosc");
                                     height = scanner1.nextLine();
-                                    thingSize = new ThingSize(Integer.parseInt(width),Integer.parseInt(length),
+                                    thingSize = new ThingSize(Integer.parseInt(width),
+                                            Integer.parseInt(length),
                                             Integer.parseInt(height));
                                 }
                                 System.out.println("homologacja: 0 - nie, 1- tak");
-                                int homologation = scanner.nextInt();
+                                int homologation = scanner1.nextInt();
+                                System.out.println("czy tu jestemn");
                                 Motorcycle motorcycle = new Motorcycle(thingName, thingSize, (homologation == 1));
                                 try{
                                     warehouseState.getWarehouseById(selectedWarehouse).addThing(motorcycle);

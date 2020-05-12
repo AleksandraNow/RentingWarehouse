@@ -19,9 +19,6 @@ public class ThingSize {
     }
 
     public int getSize() {
-        return size;
-    }
-    public float getVolume() {
         return this.size;
     }
 }
