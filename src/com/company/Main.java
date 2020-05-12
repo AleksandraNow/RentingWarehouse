@@ -21,7 +21,7 @@ public class Main {
 
         System.out.println("Witaj w magazynie: " + warehouseState.getWarehouseSetName());
 
-        prompt(warehouseState.getWarehouseSetName());
+        prompt();
         int menu;
         int selectedPerson = 0;
         int selectedWarehouse = 0;
@@ -50,7 +50,7 @@ public class Main {
 
                     selectedWarehouse = 0;
 
-                    prompt(warehouseState.getWarehouseSetName());
+                    prompt();
                     break;
                 case 2:
                     if (selectedPerson == 0) {
@@ -72,7 +72,7 @@ public class Main {
                         }
 
                     }
-                    prompt(warehouseState.getWarehouseSetName());
+                    prompt();
                     break;
                 case 3:
                     if(selectedPerson == 0) {
@@ -93,7 +93,7 @@ public class Main {
                         System.out.println("wyswitlenie zawartosci");
                         warehouseState.getWarehouseById(selectedWarehouse).warehouseContent(false);
                     }
-                    prompt(warehouseState.getWarehouseSetName());
+                    prompt();
                     break;
                     //dodanie rzeczy
                 case 4:
@@ -237,7 +237,7 @@ public class Main {
 
                         }
                     }
-                    prompt(warehouseState.getWarehouseSetName());
+                    prompt();
                     break;
 
                 case 5://usuniecie przedmiotu
@@ -256,7 +256,7 @@ public class Main {
 
                         warehouseState.getWarehouseById(selectedWarehouse).removeThing(selectedItem);
                     }
-                    prompt(warehouseState.getWarehouseSetName());
+                    prompt();
                     break;
 
                 case 6://list wolnych pomieszczen
@@ -266,7 +266,7 @@ public class Main {
                             warehouseSpace.warehouseInfo();
                         }
                     });
-                    prompt(warehouseState.getWarehouseSetName());
+                    prompt();
                     break;
                 case 7://wynajecie pomieszczenia
                     if(selectedPerson == 0) {
@@ -291,7 +291,7 @@ public class Main {
                                 "przez " + warehouseState.getPersonById(selectedPerson));
                     }
 
-                    prompt(warehouseState.getWarehouseSetName());
+                    prompt();
                     break;
 
             }
@@ -299,7 +299,7 @@ public class Main {
 
         }
     }
-    public static void prompt(String warehouseSet) {
+    public static void prompt() {
         System.out.println("\n\nMenu: ");
         System.out.println("0 - zakonczenie programu");
         System.out.println("1 - wybierz najemcę");
