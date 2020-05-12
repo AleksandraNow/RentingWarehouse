@@ -18,7 +18,6 @@ public class WarehouseSpace {
     private static int lastThingId = 1;
 
 
-
     // przedmioty w pomieszczeniu
     private Map<Integer, Thing> things = new HashMap<Integer, Thing>();
 
@@ -45,7 +44,7 @@ public class WarehouseSpace {
     }
 
     public void addThing(Thing thing) throws TooManyThingsException {
-        if(thing.getMaxSize() < this.getArea()) {
+        if (thing.getMaxSize() < this.getArea()) {
             this.things.put(lastThingId++, thing);
             spaceUsed += thing.getMaxSize();
         } else {
@@ -71,9 +70,9 @@ public class WarehouseSpace {
     }
 
     public void rentLocker(Person person) throws WarehouseIsRentedException {
-        if(!this.isAvailable)
+        if (!this.isAvailable)
             throw new WarehouseIsRentedException("Locker is unavailable due to renovation");
-        if(this.person != null)
+        if (this.person != null)
             throw new WarehouseIsRentedException("Locker id unavailable because is occupied by " + this.person.toString());
         this.person = person;
         this.isAvailable = false;
@@ -91,15 +90,15 @@ public class WarehouseSpace {
 
     //wyswitlenie zawartosci pomieszczenia
     public void warehouseContent(boolean thingId) {
-        Set <Integer> indexes = things.keySet();
+        Set<Integer> indexes = things.keySet();
         for (Integer number : indexes) {
             Thing thing = things.get(number);
             String idString = number.toString() + "-";
             if (thing instanceof Bike) {
                 System.out.println((thingId ? idString : "") + "Rower - nazwa: " + thing.getName() + ", objetosc: " + thing.getMaxSize() + ", ilosc przerzutek: " + ((Bike) thing).getDerailleurGears());
-            } else if(thing instanceof Car) {
-                System.out.println((thingId ? idString : "") + "Samochód - nazwa: " + thing.getName() + ", objetosc: " + thing.getMaxSize()+ ", silnik: " + ((Car) thing).getEngine());
-            } else if(thing instanceof Motorcycle) {
+            } else if (thing instanceof Car) {
+                System.out.println((thingId ? idString : "") + "Samochód - nazwa: " + thing.getName() + ", objetosc: " + thing.getMaxSize() + ", silnik: " + ((Car) thing).getEngine());
+            } else if (thing instanceof Motorcycle) {
                 System.out.println((thingId ? idString : "") + "Motocykl - nazwa: " + thing.getName() + ", objetosc: " + thing.getMaxSize() + ", homologacja: " + ((Motorcycle) thing).isHomologation());
             } else {
                 System.out.println((thingId ? idString : "") + "Przedmiot - nazwa: " + thing.getName() + ", objetosc: " + thing.getMaxSize());
@@ -110,23 +109,7 @@ public class WarehouseSpace {
     }
 
     public void warehouseInfo() {
-        System.out.println("pomieszczenie o objętości: " + this.getArea()) ;
+        System.out.println("pomieszczenie o objętości: " + this.getArea());
     }
-
-    public static void createWarehouse(WarehouseState warehouseState) {
-        WarehouseSpace warehouseSpace1 = new WarehouseSpace(120);
-        WarehouseSpace warehouseSpace2 = new WarehouseSpace(85);
-        WarehouseSpace warehouseSpace3 = new WarehouseSpace(460);
-        WarehouseSpace warehouseSpace4 = new WarehouseSpace(30,2,3);
-        WarehouseSpace warehouseSpace5 = new WarehouseSpace(80,2,1);
-        warehouseState.addWarehouse(warehouseSpace1);
-        warehouseState.addWarehouse(warehouseSpace2);
-        warehouseState.addWarehouse(warehouseSpace3);
-        warehouseState.addWarehouse(warehouseSpace4);
-        warehouseState.addWarehouse(warehouseSpace5);
-    }
-
-
-
 
 }

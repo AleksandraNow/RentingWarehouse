@@ -54,6 +54,19 @@ public class WarehouseState {
         return null;
     }
 
+    public static void createWarehouse(WarehouseState warehouseState) {
+        WarehouseSpace warehouseSpace1 = new WarehouseSpace(120);
+        WarehouseSpace warehouseSpace2 = new WarehouseSpace(85);
+        WarehouseSpace warehouseSpace3 = new WarehouseSpace(460);
+        WarehouseSpace warehouseSpace4 = new WarehouseSpace(30, 2, 3);
+        WarehouseSpace warehouseSpace5 = new WarehouseSpace(80, 2, 1);
+        warehouseState.addWarehouse(warehouseSpace1);
+        warehouseState.addWarehouse(warehouseSpace2);
+        warehouseState.addWarehouse(warehouseSpace3);
+        warehouseState.addWarehouse(warehouseSpace4);
+        warehouseState.addWarehouse(warehouseSpace5);
+    }
+
 
     public void createPerson() {
         Person person1 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
@@ -66,9 +79,5 @@ public class WarehouseState {
         this.addPerson(person3);
         this.addPerson(person4);
         this.addPerson(person5);
-
     }
-
-
-
 }

@@ -15,7 +15,7 @@ public class Main {
         WarehouseState warehouseState = new WarehouseState("duży magazyn");
 
 
-        WarehouseSpace.createWarehouse(warehouseState);
+        WarehouseState.createWarehouse(warehouseState);
         warehouseState.createPerson();
 
 
@@ -172,7 +172,6 @@ public class Main {
                                 }
                                 System.out.println("homologacja: 0 - nie, 1- tak");
                                 int homologation = scanner1.nextInt();
-                                System.out.println("czy tu jestemn");
                                 Motorcycle motorcycle = new Motorcycle(thingName, thingSize, (homologation == 1));
                                 try {
                                     warehouseState.getWarehouseById(selectedWarehouse).addThing(motorcycle);
