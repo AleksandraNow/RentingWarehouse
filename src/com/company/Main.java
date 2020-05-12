@@ -81,7 +81,7 @@ public class Main {
                         System.out.println("wybierz pomieszczenie wynajmowane przez najemce");
                         for (WarehouseSpace warehouseSpace : warehouseState.getWarehouseSet()) {
                             if (warehouseSpace.getPerson() != null && warehouseSpace.getPerson().getPersonId() == selectedPerson) {
-                                System.out.println(warehouseSpace.getWarehouseId() + "-" + warehouseSpace.getArea() + " " + warehouseSpace.getThings().toString());
+                                System.out.println(warehouseSpace.getWarehouseId() + " -całkowita objetość:  " + warehouseSpace.getArea() + " przedmioty: " + warehouseSpace.getThings().toString());
                             }
                         }
                         System.out.println("0 - zakonczenie programu");
