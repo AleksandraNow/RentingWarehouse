@@ -16,7 +16,7 @@ public class Main {
 
 
         WarehouseState.createWarehouse(warehouseState);
-        warehouseState.createPerson();
+        warehouseState.createPeople();
 
 
         System.out.println("Witaj w magazynie: " + warehouseState.getWarehouseSetName());

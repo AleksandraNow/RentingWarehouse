@@ -68,7 +68,7 @@ public class WarehouseState {
     }
 
 
-    public void createPerson() {
+    public void createPeople() {
         Person person1 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
         Person person2 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
         Person person3 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
