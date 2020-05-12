@@ -11,17 +11,17 @@ public class Thing {
 
     public Thing(String name, ThingSize size) {
         this.name = name;
-        this.size1 = size1;
+        this.size1 = size;
     }
 
     public Thing(String name, ThingSize size, ThingSize size2) {
         this.name = name;
-        this.size1 = size1;
+        this.size1 = size;
         this.size2 = size2;
     }
 
     public int getMaxSize() {
-        if (size1.getSize() > 0 && size1 != null && size2.getSize() > 0 && size2!= null) {
+        if (size1 != null && size1.getSize() > 0 && size2 != null && size2.getSize() > 0 ) {
             //math.max porówuje dwie wartosci i zwraca większą wartość
             return Math.max(size1.getSize(), size2.getSize());
         } else {
@@ -31,5 +31,9 @@ public class Thing {
 
     public String getName() {
         return this.name;
+    }
+
+    public String toString() {
+        return "nazwa: " + name;
     }
 }

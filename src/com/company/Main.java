@@ -81,17 +81,20 @@ public class Main {
                         System.out.println("wybierz pomieszczenie wynajmowane przez najemce");
                         for (WarehouseSpace warehouseSpace : warehouseState.getWarehouseSet()) {
                             if (warehouseSpace.getPerson() != null && warehouseSpace.getPerson().getPersonId() == selectedPerson) {
-                                System.out.println(warehouseSpace.getWarehouseId() + "-" + warehouseSpace.getArea());
+                                System.out.println(warehouseSpace.getWarehouseId() + "-" + warehouseSpace.getArea() + " " + warehouseSpace.getThings().toString());
                             }
                         }
+                        System.out.println("0 - zakonczenie programu");
+
                         selectedWarehouse = scanner.nextInt();
                         if (selectedWarehouse == 0)
                             System.exit(0);
 
                         System.out.println("wyswitlenie zawartosci");
                         warehouseState.getWarehouseById(selectedWarehouse).warehouseContent(false);
-                        break;
                     }
+                    prompt(warehouseState.getWarehouseSetName());
+                    break;
                     //dodanie rzeczy
                 case 4:
                     if(selectedPerson == 0 || selectedWarehouse == 0) {
@@ -137,8 +140,8 @@ public class Main {
                                             Integer.parseInt(height));
                                 }
                                 System.out.println("Typ silnika: 0 - DIESEL, 1 - GAS, 2 - PETROL, 3 - HYBRID");
-                                int CarEngineType = scanner.nextInt();
-                                Car car = new Car(thingName, thingSize, EngineType.values()[CarEngineType]);;
+                                int carEngineType = scanner.nextInt();
+                                Car car = new Car(thingName, thingSize, EngineType.values()[carEngineType]);
                                 try {
                                     warehouseState.getWarehouseById(selectedWarehouse).addThing(car);
                                 } catch (TooManyThingsException tooManyThingsException) {
