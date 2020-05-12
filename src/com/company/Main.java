@@ -15,7 +15,7 @@ public class Main {
         WarehouseState warehouseState = new WarehouseState("duży magazyn");
 
 
-        WarehouseState.createWarehouse(warehouseState);
+        WarehouseState.createWarehouseSpaces(warehouseState);
         warehouseState.createPeople();
 
 

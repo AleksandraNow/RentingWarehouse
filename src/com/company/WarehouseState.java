@@ -54,7 +54,7 @@ public class WarehouseState {
         return null;
     }
 
-    public static void createWarehouse(WarehouseState warehouseState) {
+    public static void createWarehouseSpaces(WarehouseState warehouseState) {
         WarehouseSpace warehouseSpace1 = new WarehouseSpace(120);
         WarehouseSpace warehouseSpace2 = new WarehouseSpace(85);
         WarehouseSpace warehouseSpace3 = new WarehouseSpace(460);
