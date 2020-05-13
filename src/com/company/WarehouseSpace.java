@@ -112,4 +112,6 @@ public class WarehouseSpace {
         System.out.println("pomieszczenie o objętości: " + this.getArea());
     }
 
+
+
 }

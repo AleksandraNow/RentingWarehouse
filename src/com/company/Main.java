@@ -254,9 +254,11 @@ public class Main {
                     prompt();
                     break;
 
+                case 8:
+                    warehouseState.report();
+                    prompt();
+
             }
-
-
         }
     }
 
