@@ -74,6 +74,7 @@ public class WarehouseState {
         warehouseState.addWarehouse(warehouseSpace4);
         warehouseState.addWarehouse(warehouseSpace5);
         warehouseState.addWarehouse(warehouseSpace6);
+        warehouseState.addWarehouse(warehouseSpace7);
         warehouseState.addWarehouse(warehouseSpace8);
         warehouseState.addWarehouse(warehouseSpace9);
         warehouseState.addWarehouse(warehouseSpace10);
