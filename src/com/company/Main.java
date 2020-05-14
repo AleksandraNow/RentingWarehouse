@@ -13,10 +13,7 @@ public class Main {
 
 
         WarehouseState warehouseState = new WarehouseState("duży magazyn");
-
-        Info info = new Info();
-
-
+        
         WarehouseState.createWarehouseSpaces(warehouseState);
         warehouseState.createPeople();
 
@@ -127,9 +124,21 @@ public class Main {
                                 System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
                                 sizeType = scanner.nextInt();
                                 if (sizeType == 0) {
-                                    info.getVolume();
+                                    System.out.println("objetosc: ");
+                                    int size = scanner1.nextInt();
+                                    thingSize = new ThingSize(size);
                                 } else if (sizeType == 1) {
-                                    info.getDimension();
+                                    String width, length, height;
+                                    scanner1 = new Scanner(System.in);
+                                    System.out.println("podaj szerokosc");
+                                    width = scanner1.nextLine();
+                                    System.out.println("podaj długosc");
+                                    length = scanner1.nextLine();
+                                    System.out.println("podaj wysokosc");
+                                    height = scanner1.nextLine();
+                                    thingSize = new ThingSize(Integer.parseInt(width),
+                                            Integer.parseInt(length),
+                                            Integer.parseInt(height));
                                 }
                                 System.out.println("Typ silnika: 0 - DIESEL, 1 - GAS, 2 - PETROL, 3 - HYBRID");
                                 int carEngineType = scanner.nextInt();
@@ -147,9 +156,21 @@ public class Main {
                                 System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
                                 sizeType = scanner1.nextInt();
                                 if (sizeType == 0) {
-                                    info.getVolume();
+                                    System.out.println("objetosc: ");
+                                    int size = scanner1.nextInt();
+                                    thingSize = new ThingSize(size);
                                 } else if (sizeType == 1) {
-                                    info.getDimension();
+                                    String width, length, height;
+                                    scanner1 = new Scanner(System.in);
+                                    System.out.println("podaj szerokosc");
+                                    width = scanner1.nextLine();
+                                    System.out.println("podaj długosc");
+                                    length = scanner1.nextLine();
+                                    System.out.println("podaj wysokosc");
+                                    height = scanner1.nextLine();
+                                    thingSize = new ThingSize(Integer.parseInt(width),
+                                            Integer.parseInt(length),
+                                            Integer.parseInt(height));
                                 }
                                 System.out.println("homologacja: 0 - nie, 1- tak");
                                 int homologation = scanner1.nextInt();
@@ -166,9 +187,21 @@ public class Main {
                                 System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
                                 sizeType = scanner.nextInt();
                                 if (sizeType == 0) {
-                                    info.getVolume();
+                                    System.out.println("objetosc: ");
+                                    int size = scanner1.nextInt();
+                                    thingSize = new ThingSize(size);
                                 } else if (sizeType == 1) {
-                                    info.getDimension();
+                                    String width, length, height;
+                                    scanner1 = new Scanner(System.in);
+                                    System.out.println("podaj szerokosc");
+                                    width = scanner1.nextLine();
+                                    System.out.println("podaj długosc");
+                                    length = scanner1.nextLine();
+                                    System.out.println("podaj wysokosc");
+                                    height = scanner1.nextLine();
+                                    thingSize = new ThingSize(Integer.parseInt(width),
+                                            Integer.parseInt(length),
+                                            Integer.parseInt(height));
                                 }
                                 System.out.println("ilosc przerzutek");
                                 int derailleurGears = scanner.nextInt();
@@ -186,9 +219,21 @@ public class Main {
                                 System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
                                 sizeType = scanner.nextInt();
                                 if (sizeType == 0) {
-                                    info.getVolume();
+                                    System.out.println("objetosc: ");
+                                    int size = scanner1.nextInt();
+                                    thingSize = new ThingSize(size);
                                 } else if (sizeType == 1) {
-                                    info.getDimension();
+                                    String width, length, height;
+                                    scanner1 = new Scanner(System.in);
+                                    System.out.println("podaj szerokosc");
+                                    width = scanner1.nextLine();
+                                    System.out.println("podaj długosc");
+                                    length = scanner1.nextLine();
+                                    System.out.println("podaj wysokosc");
+                                    height = scanner1.nextLine();
+                                    thingSize = new ThingSize(Integer.parseInt(width),
+                                            Integer.parseInt(length),
+                                            Integer.parseInt(height));
                                 }
                                 Thing thing = new Thing(thingName, thingSize);
                                 try {

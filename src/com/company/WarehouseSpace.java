@@ -31,14 +31,6 @@ public class WarehouseSpace {
         this.area = length * width * height;
     }
 
-
-    public boolean isFree() {
-        if (person == null) {
-            return true;
-        }
-        return false;
-    }
-
     public void removePerson() {
         this.person = null;
     }
