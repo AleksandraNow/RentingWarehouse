@@ -13,7 +13,7 @@ public class Main {
 
 
         WarehouseState warehouseState = new WarehouseState("duży magazyn");
-        
+
         WarehouseState.createWarehouseSpaces(warehouseState);
         warehouseState.createPeople();
 
@@ -83,17 +83,15 @@ public class Main {
                                 System.out.println(warehouseSpace.getWarehouseId() + " -całkowita objetość:  " + warehouseSpace.getArea() + " przedmioty: " + warehouseSpace.getThings().toString());
                             }
                         }
-                        System.out.println("0 - zakonczenie programu");
+                        System.out.println("0 - zakonczenie programu lub wybierz inną liczbę aby przejsc dalej");
 
                         selectedWarehouse = scanner.nextInt();
                         if (selectedWarehouse == 0)
                             System.exit(0);
-
-                        System.out.println("wyswietlenie zawartosci");
-                        warehouseState.getWarehouseById(selectedWarehouse).warehouseContent(false);
-                        break;
+                        else {
+                            prompt();
+                        }
                     }
-                    prompt();
                     break;
                 //dodanie rzeczy
                 case 4:
@@ -286,7 +284,7 @@ public class Main {
 
                         selectedWarehouse = scanner.nextInt();
                         try {
-                            warehouseState.getWarehouseById(selectedWarehouse).rentLocker(warehouseState.getPersonById(selectedPerson));
+                            warehouseState.getWarehouseById(selectedWarehouse).rentWarehousespace(warehouseState.getPersonById(selectedPerson));
 
                         } catch (WarehouseIsRentedException e) {
                             System.out.println(e.getMessage());

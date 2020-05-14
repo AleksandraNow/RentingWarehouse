@@ -38,7 +38,6 @@ public class WarehouseSpace {
     public void addThing(Thing thing) throws TooManyThingsException {
         if (thing.getMaxSize() < this.getArea()) {
             this.things.put(lastThingId++, thing);
-            spaceUsed += thing.getMaxSize();
         } else {
             throw new TooManyThingsException();
         }
@@ -61,11 +60,11 @@ public class WarehouseSpace {
         return area;
     }
 
-    public void rentLocker(Person person) throws WarehouseIsRentedException {
+    public void rentWarehousespace(Person person) throws WarehouseIsRentedException {
         if (!this.isAvailable)
-            throw new WarehouseIsRentedException("Locker is unavailable due to renovation");
+            throw new WarehouseIsRentedException("magazyn nie jest dostępny");
         if (this.person != null)
-            throw new WarehouseIsRentedException("Locker id unavailable because is occupied by " + this.person.toString());
+            throw new WarehouseIsRentedException("magazyn jest już wynajęty przez:  " + this.person.toString());
         this.person = person;
         this.isAvailable = false;
     }
@@ -79,10 +78,10 @@ public class WarehouseSpace {
         return isAvailable;
     }
 
-
     //wyswitlenie zawartosci pomieszczenia
     public void warehouseContent(boolean thingId) {
         Set<Integer> indexes = things.keySet();
+        //keyset() zwroci mi zbiór kluczy
         for (Integer number : indexes) {
             Thing thing = things.get(number);
             String idString = number.toString() + "-";

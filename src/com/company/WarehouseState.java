@@ -83,10 +83,10 @@ public class WarehouseState {
 
     public void createPeople() {
         Person person1 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-        Person person2 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-        Person person3 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-        Person person4 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-        Person person5 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
+        Person person2 = new Person("ala", "asb", "12123456", "adress1", "202-02-03");
+        Person person3 = new Person("marek", "c", "12123456", "adress1", "202-02-03");
+        Person person4 = new Person("asia", "d", "12123456", "adress1", "202-02-03");
+        Person person5 = new Person("kasia", "td", "12123456", "adress1", "202-02-03");
         this.addPerson(person1);
         this.addPerson(person2);
         this.addPerson(person3);
