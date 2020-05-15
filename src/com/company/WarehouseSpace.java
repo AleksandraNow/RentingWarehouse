@@ -7,8 +7,6 @@ import java.util.*;
 
 public class WarehouseSpace {
     private int warehouseId;
-    public int data;
-    public int lockerId;
     private int area;
     private Date time;
     private Person person;

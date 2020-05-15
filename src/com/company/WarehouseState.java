@@ -100,7 +100,7 @@ public class WarehouseState {
         StringBuffer stringBuffer = new StringBuffer();
         try{
             writer = new BufferedWriter(new FileWriter(fileName));
-            for (WarehouseSpace warehouseSpace: this.getWarehouseSet()) {
+            for (WarehouseSpace warehouseSpace: warehouseSet) {
                 stringBuffer.append("------------------------------------------------------------------------------\n");
                 stringBuffer.append("Pomieszczenie: id = " + warehouseSpace.getWarehouseId() + " całkowita przestrzeń" +
                         " = " + warehouseSpace.getArea() + "\n");
@@ -111,7 +111,16 @@ public class WarehouseState {
                 Set <Integer> indexes = warehouseSpace.getThings().keySet();
                 for (Integer integer : indexes) {
                     Thing thing = warehouseSpace.getThings().get(integer);
-                    stringBuffer.append(integer.toString() + " - " + thing.toString());
+                    if(thing instanceof Bike) {
+                        stringBuffer.append(integer.toString() + thing.toString());
+                    } else if(thing instanceof Car) {
+                        stringBuffer.append(integer.toString() + thing.toString());
+                    } else if(thing instanceof Motorcycle) {
+                        stringBuffer.append(integer.toString() + thing.toString());
+                    } else {
+                        stringBuffer.append(integer.toString() + thing.toString());
+                    }
+                    //stringBuffer.append(integer.toString() + " - " + thing.toString());
                 }
             }
             writer.write(stringBuffer.toString());

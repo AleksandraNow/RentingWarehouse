@@ -4,28 +4,28 @@ public class Thing {
     private String name;
 
     //wielkosc nierozlozonego przedmiotu
-    private ThingSize size1;
+    private ThingSize complexSize;
 
     //wielkosc rozłozonego przedmiotu
-    private ThingSize size2;
+    private ThingSize distributedSize;
 
-    public Thing(String name, ThingSize size) {
+    public Thing(String name, ThingSize complexSize) {
         this.name = name;
-        this.size1 = size;
+        this.complexSize = complexSize;
     }
 
-    public Thing(String name, ThingSize size, ThingSize size2) {
+    public Thing(String name, ThingSize complexSize, ThingSize distributedSize) {
         this.name = name;
-        this.size1 = size;
-        this.size2 = size2;
+        this.complexSize = complexSize;
+        this.distributedSize = distributedSize;
     }
 
     public int getMaxSize() {
-        if (size1 != null && size2 != null) {
+        if (complexSize != null && distributedSize != null) {
             //math.max porówuje dwie wartosci i zwraca większą wartość
-            return Math.max(size1.getSize(), size2.getSize());
+            return Math.max(complexSize.getSize(), distributedSize.getSize());
         } else {
-            return size1.getSize();
+            return complexSize.getSize();
         }
     }
 
