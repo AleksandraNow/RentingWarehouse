@@ -1,6 +1,7 @@
 package com.company;
 
 public class Bike extends Thing {
+    Thing thing;
 
     private int derailleurGears;
 
@@ -10,5 +11,9 @@ public class Bike extends Thing {
     }
     public int getDerailleurGears() {
         return this.derailleurGears;
+    }
+
+    public String toString() {
+        return (" - Rower - nazwa: " + thing.getName() + ", objetość: " + thing.getMaxSize() + ", ilość przerzutek: " + getDerailleurGears());
     }
 }

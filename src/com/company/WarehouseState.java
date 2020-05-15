@@ -111,21 +111,7 @@ public class WarehouseState {
                 Set <Integer> indexes = warehouseSpace.getThings().keySet();
                 for (Integer integer : indexes) {
                     Thing thing = warehouseSpace.getThings().get(integer);
-                    if (thing instanceof Bike) {
-                        stringBuffer.append(integer.toString() + " - Rower - nazwa: " + thing.getName() +  ", " +
-                                "objętosc: " + thing.getMaxSize() + ", ilość przerzutek: " + ((Bike) thing).getDerailleurGears() + "\n");
-
-                    } else if (thing instanceof Car) {
-                        stringBuffer.append(integer.toString() + " - Samchod - nazwa: " + thing.getName() + ", " +
-                                "objetosc: " + thing.getMaxSize() + ", silnik: " + ((Car) thing).getEngine()+ "\n");
-
-                    }else if (thing instanceof Motorcycle) {
-                        stringBuffer.append(integer.toString() + " - Motocykl - nazwa: " + thing.getName() + ", " +
-                                "objetosc: " +  thing.getMaxSize() + ", homologacja: " + ((Motorcycle) thing).isHomologation()+ "\n");
-                    } else {
-                        stringBuffer.append(integer.toString() + " - Przedmiot - nazwa: " + thing.getName() +
-                                "objetosc: " + thing.getMaxSize()+ "\n");
-                    }
+                    stringBuffer.append(integer.toString() + " - " + thing.toString());
                 }
             }
             writer.write(stringBuffer.toString());

@@ -34,6 +34,6 @@ public class Thing {
     }
 
     public String toString() {
-        return "nazwa: " + name;
+        return " - Przedmiot - nazwa: " + getName() + ", objetość: " + getMaxSize();
     }
 }

@@ -20,7 +20,7 @@ public class Main {
 
         System.out.println("Witaj w magazynie: " + warehouseState.getWarehouseSetName());
 
-        prompt();
+        showMenu();
         int menu;
         int selectedPerson = 0;
         int selectedWarehouse = 0;
@@ -45,12 +45,12 @@ public class Main {
                     if (selectedPerson == 0) {
                         System.exit(0);
                     }
-                    
+
                     System.out.println("wybrany wynajmujący" + warehouseState.getPersonById(selectedPerson));
 
                     selectedWarehouse = 0;
 
-                    prompt();
+                    showMenu();
                     break;
                 case 2:
                     if (selectedPerson == 0) {
@@ -72,7 +72,7 @@ public class Main {
                         }
 
                     }
-                    prompt();
+                    showMenu();
                     break;
                 case 3:
                     if (selectedPerson == 0) {
@@ -90,7 +90,7 @@ public class Main {
                         if (selectedWarehouse == 0)
                             System.exit(0);
                         else {
-                            prompt();
+                            showMenu();
                         }
                     }
                     break;
@@ -120,27 +120,15 @@ public class Main {
                             case 1:
                                 System.out.println("marka samochod");
                                 thingName = scanner1.nextLine();
-                                System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
-                                sizeType = scanner.nextInt();
-                                if (sizeType == 0) {
-                                    System.out.println("objetosc: ");
-                                    int size = scanner1.nextInt();
-                                    thingSize = new ThingSize(size);
-                                } else if (sizeType == 1) {
-                                    String width, length, height;
-                                    scanner1 = new Scanner(System.in);
-                                    System.out.println("podaj szerokosc");
-                                    width = scanner1.nextLine();
-                                    System.out.println("podaj długosc");
-                                    length = scanner1.nextLine();
-                                    System.out.println("podaj wysokosc");
-                                    height = scanner1.nextLine();
-                                    thingSize = new ThingSize(Integer.parseInt(width),
-                                            Integer.parseInt(length),
-                                            Integer.parseInt(height));
-                                }
-                                System.out.println("Typ silnika: 0 - DIESEL, 1 - GAS, 2 - PETROL, 3 - HYBRID");
-                                int carEngineType = scanner.nextInt();
+                                thingSize = getThingSize(scanner1);
+                                int carEngineType = -1;
+                                do {
+                                    System.out.println("Typ silnika: 0 - DIESEL, 1 - GAS, 2 - PETROL, 3 - HYBRID");
+                                    carEngineType = scanner.nextInt();
+                                    if (carEngineType > 3 || carEngineType < 0) {
+                                        System.out.println("niepoprawna wartość");
+                                    }
+                                } while (carEngineType > 3 || carEngineType < 0);
                                 Car car = new Car(thingName, thingSize, EngineType.values()[carEngineType]);
                                 try {
                                     warehouseState.getWarehouseById(selectedWarehouse).addThing(car);
@@ -152,27 +140,15 @@ public class Main {
                             case 2:
                                 System.out.println("marka motocyklu");
                                 thingName = scanner.nextLine();
-                                System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
-                                sizeType = scanner1.nextInt();
-                                if (sizeType == 0) {
-                                    System.out.println("objetosc: ");
-                                    int size = scanner1.nextInt();
-                                    thingSize = new ThingSize(size);
-                                } else if (sizeType == 1) {
-                                    String width, length, height;
-                                    scanner1 = new Scanner(System.in);
-                                    System.out.println("podaj szerokosc");
-                                    width = scanner1.nextLine();
-                                    System.out.println("podaj długosc");
-                                    length = scanner1.nextLine();
-                                    System.out.println("podaj wysokosc");
-                                    height = scanner1.nextLine();
-                                    thingSize = new ThingSize(Integer.parseInt(width),
-                                            Integer.parseInt(length),
-                                            Integer.parseInt(height));
-                                }
-                                System.out.println("homologacja: 0 - nie, 1- tak");
-                                int homologation = scanner1.nextInt();
+                                thingSize = getThingSize(scanner1);
+                                int homologation = -1;
+                                do {
+                                    System.out.println("homologacja: 0 - nie, 1- tak");
+                                    homologation = scanner1.nextInt();
+                                    if (homologation < 0 || homologation > 1) {
+                                        System.out.println("niepoprawna wartość");
+                                    }
+                                } while (homologation < 0 || homologation > 1);
                                 Motorcycle motorcycle = new Motorcycle(thingName, thingSize, (homologation == 1));
                                 try {
                                     warehouseState.getWarehouseById(selectedWarehouse).addThing(motorcycle);
@@ -183,25 +159,7 @@ public class Main {
                             case 3:
                                 System.out.println("nazwa roweru");
                                 thingName = scanner1.nextLine();
-                                System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
-                                sizeType = scanner.nextInt();
-                                if (sizeType == 0) {
-                                    System.out.println("objetosc: ");
-                                    int size = scanner1.nextInt();
-                                    thingSize = new ThingSize(size);
-                                } else if (sizeType == 1) {
-                                    String width, length, height;
-                                    scanner1 = new Scanner(System.in);
-                                    System.out.println("podaj szerokosc");
-                                    width = scanner1.nextLine();
-                                    System.out.println("podaj długosc");
-                                    length = scanner1.nextLine();
-                                    System.out.println("podaj wysokosc");
-                                    height = scanner1.nextLine();
-                                    thingSize = new ThingSize(Integer.parseInt(width),
-                                            Integer.parseInt(length),
-                                            Integer.parseInt(height));
-                                }
+                                thingSize = getThingSize(scanner1);
                                 System.out.println("ilosc przerzutek");
                                 int derailleurGears = scanner.nextInt();
                                 Bike bike = new Bike(thingName, thingSize, derailleurGears);
@@ -215,25 +173,7 @@ public class Main {
                             case 4:
                                 System.out.println("nazwa przedmiotu");
                                 thingName = scanner1.nextLine();
-                                System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
-                                sizeType = scanner.nextInt();
-                                if (sizeType == 0) {
-                                    System.out.println("objetosc: ");
-                                    int size = scanner1.nextInt();
-                                    thingSize = new ThingSize(size);
-                                } else if (sizeType == 1) {
-                                    String width, length, height;
-                                    scanner1 = new Scanner(System.in);
-                                    System.out.println("podaj szerokosc");
-                                    width = scanner1.nextLine();
-                                    System.out.println("podaj długosc");
-                                    length = scanner1.nextLine();
-                                    System.out.println("podaj wysokosc");
-                                    height = scanner1.nextLine();
-                                    thingSize = new ThingSize(Integer.parseInt(width),
-                                            Integer.parseInt(length),
-                                            Integer.parseInt(height));
-                                }
+                                thingSize = getThingSize(scanner1);
                                 Thing thing = new Thing(thingName, thingSize);
                                 try {
                                     warehouseState.getWarehouseById(selectedWarehouse).addThing(thing);
@@ -243,7 +183,7 @@ public class Main {
                                 break;
                         }
                     }
-                    prompt();
+                    showMenu();
                     break;
 
                 case 5://usuniecie przedmiotu
@@ -260,7 +200,7 @@ public class Main {
 
                         warehouseState.getWarehouseById(selectedWarehouse).removeThing(selectedItem);
                     }
-                    prompt();
+                    showMenu();
                     break;
 
                 case 6://list wolnych pomieszczen
@@ -270,7 +210,7 @@ public class Main {
                             warehouseSpace.warehouseInfo();
                         }
                     });
-                    prompt();
+                    showMenu();
                     break;
                 case 7://wynajecie pomieszczenia
                     if (selectedPerson == 0) {
@@ -295,18 +235,18 @@ public class Main {
                                 "przez " + warehouseState.getPersonById(selectedPerson));
                     }
 
-                    prompt();
+                    showMenu();
                     break;
 
                 case 8:
                     warehouseState.report();
-                    prompt();
+                    showMenu();
 
             }
         }
     }
 
-    public static void prompt() {
+    public static void showMenu() {
         System.out.println("\n\nMenu: ");
         System.out.println("0 - zakonczenie programu");
         System.out.println("1 - wybierz najemcę");
@@ -318,4 +258,32 @@ public class Main {
         System.out.println("7 - wynajmij wolne pomieszczenie");
         System.out.println("8 - raport magazynu");
     }
+
+    public static ThingSize getThingSize(Scanner scanner1) {
+        System.out.println("Zajmowana objętość: 0 - m3, 1 - wymiary (szer x dł x wys)");
+        int sizeType = scanner1.nextInt();
+        ThingSize thingSize = null;
+        if (sizeType == 0) {
+            System.out.println("objetosc: ");
+            int size = scanner1.nextInt();
+            thingSize = new ThingSize(size);
+        } else if (sizeType == 1) {
+            String width, length, height;
+            scanner1 = new Scanner(System.in);
+            System.out.println("podaj szerokosc");
+            width = scanner1.nextLine();
+            System.out.println("podaj długosc");
+            length = scanner1.nextLine();
+            System.out.println("podaj wysokosc");
+            height = scanner1.nextLine();
+            thingSize = new ThingSize(Integer.parseInt(width),
+                    Integer.parseInt(length),
+                    Integer.parseInt(height));
+        } else {
+            System.out.println("niepoprawna wartość");
+        }
+        return thingSize;
+    }
+
+
 }
