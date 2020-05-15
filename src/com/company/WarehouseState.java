@@ -98,9 +98,9 @@ public class WarehouseState {
         String fileName = "MAGAZYN.txt";
         BufferedWriter writer;
         StringBuffer stringBuffer = new StringBuffer();
-        try{
+        try {
             writer = new BufferedWriter(new FileWriter(fileName));
-            for (WarehouseSpace warehouseSpace: warehouseSet) {
+            for (WarehouseSpace warehouseSpace : warehouseSet) {
                 stringBuffer.append("------------------------------------------------------------------------------\n");
                 stringBuffer.append("Pomieszczenie: id = " + warehouseSpace.getWarehouseId() + " całkowita przestrzeń" +
                         " = " + warehouseSpace.getArea() + "\n");
@@ -108,26 +108,29 @@ public class WarehouseState {
                 stringBuffer.append("najemca: " + (warehouseSpace.getPerson() != null ?
                         warehouseSpace.getPerson().toString() + "\n" : "brak\n"));
                 stringBuffer.append("------------------------------------------------------------------------------\n");
-                Set <Integer> indexes = warehouseSpace.getThings().keySet();
+                Set<Integer> indexes = warehouseSpace.getThings().keySet();
                 for (Integer integer : indexes) {
                     Thing thing = warehouseSpace.getThings().get(integer);
-                    if(thing instanceof Bike) {
-                        stringBuffer.append(integer.toString() + thing.toString());
-                    } else if(thing instanceof Car) {
-                        stringBuffer.append(integer.toString() + thing.toString());
-                    } else if(thing instanceof Motorcycle) {
-                        stringBuffer.append(integer.toString() + thing.toString());
-                    } else {
-                        stringBuffer.append(integer.toString() + thing.toString());
+                    for (Integer i : indexes) {
+                        Thing t = warehouseSpace.getThings().get(i);
+                        if (t instanceof Bike) {
+                            stringBuffer.append(i.toString() + " - Rower - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", ilość przerzutek: " + ((Bike) t).getDerailleurGears() + "\n");
+                        } else if (t instanceof Car) {
+                            stringBuffer.append(i.toString() + " - Samochód - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", silnik: " + ((Car) t).getEngine() + "\n");
+                        } else if (t instanceof Motorcycle) {
+                            stringBuffer.append(i.toString() + " - Motocykl - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", homologacja: " + ((Motorcycle) t).isHomologation() + "\n");
+                        } else {
+                            stringBuffer.append(i.toString() + " - Przedmiot - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + "\n");
+                        }
                     }
-                    //stringBuffer.append(integer.toString() + " - " + thing.toString());
                 }
             }
             writer.write(stringBuffer.toString());
             writer.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
 
+    }
 }
