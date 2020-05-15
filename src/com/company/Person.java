@@ -13,7 +13,6 @@ public class Person {
     private String lastName;
     private String personalIdentityNumber;
     private String address;
-    //private Date dateOfBirth; trzeba pozniej zmienic
     private String dateOfBirth;
     private Date firstRent;
 
@@ -62,7 +61,7 @@ public class Person {
         return address;
     }
 
-    public String getDateOfBirth() {
+    public String  getDateOfBirth() {
         return dateOfBirth;
     }
 
