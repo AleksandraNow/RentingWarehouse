@@ -109,19 +109,16 @@ public class WarehouseState {
                         warehouseSpace.getPerson().toString() + "\n" : "brak\n"));
                 stringBuffer.append("------------------------------------------------------------------------------\n");
                 Set<Integer> indexes = warehouseSpace.getThings().keySet();
-                for (Integer integer : indexes) {
-                    Thing thing = warehouseSpace.getThings().get(integer);
-                    for (Integer i : indexes) {
-                        Thing t = warehouseSpace.getThings().get(i);
-                        if (t instanceof Bike) {
-                            stringBuffer.append(i.toString() + " - Rower - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", ilość przerzutek: " + ((Bike) t).getDerailleurGears() + "\n");
-                        } else if (t instanceof Car) {
-                            stringBuffer.append(i.toString() + " - Samochód - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", silnik: " + ((Car) t).getEngine() + "\n");
-                        } else if (t instanceof Motorcycle) {
-                            stringBuffer.append(i.toString() + " - Motocykl - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", homologacja: " + ((Motorcycle) t).isHomologation() + "\n");
-                        } else {
-                            stringBuffer.append(i.toString() + " - Przedmiot - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + "\n");
-                        }
+                for (Integer i : indexes) {
+                    Thing t = warehouseSpace.getThings().get(i);
+                    if (t instanceof Bike) {
+                        stringBuffer.append(i.toString() + " - Rower - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", ilość przerzutek: " + ((Bike) t).getDerailleurGears() + "\n");
+                    } else if (t instanceof Car) {
+                        stringBuffer.append(i.toString() + " - Samochód - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", silnik: " + ((Car) t).getEngine() + "\n");
+                    } else if (t instanceof Motorcycle) {
+                        stringBuffer.append(i.toString() + " - Motocykl - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + ", homologacja: " + ((Motorcycle) t).isHomologation() + "\n");
+                    } else {
+                        stringBuffer.append(i.toString() + " - Przedmiot - nazwa: " + t.getName() + ", objetość: " + t.getMaxSize() + "\n");
                     }
                 }
             }
