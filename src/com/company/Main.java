@@ -45,6 +45,7 @@ public class Main {
                     if (selectedPerson == 0) {
                         System.exit(0);
                     }
+                    
                     System.out.println("wybrany wynajmujący" + warehouseState.getPersonById(selectedPerson));
 
                     selectedWarehouse = 0;
