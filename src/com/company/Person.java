@@ -2,9 +2,7 @@ package com.company;
 
 import com.company.exceptions.NeverRentException;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Person {
 
@@ -15,7 +13,6 @@ public class Person {
     private String lastName;
     private String personalIdentityNumber;
     private String address;
-    //private Date dateOfBirth; trzeba pozniej zmienic
     private String dateOfBirth;
     private Date firstRent;
 
@@ -64,22 +61,10 @@ public class Person {
         return address;
     }
 
-    public String getDateOfBirth() {
+    public String  getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public static void createPerson(WarehouseReport warehouseReport) {
-         Person person1 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-         Person person2 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-         Person person3 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-         Person person4 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-         Person person5 = new Person("ola", "t", "12123456", "adress1", "202-02-03");
-         warehouseReport.addPerson(person1);
-         warehouseReport.addPerson(person2);
-         warehouseReport.addPerson(person3);
-         warehouseReport.addPerson(person4);
-         warehouseReport.addPerson(person5);
 
-    }
 
 }

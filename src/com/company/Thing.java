@@ -4,32 +4,36 @@ public class Thing {
     private String name;
 
     //wielkosc nierozlozonego przedmiotu
-    private ThingSize size1;
+    private ThingSize folded;
 
     //wielkosc rozłozonego przedmiotu
-    private ThingSize size2;
+    private ThingSize unfolded;
 
-    public Thing(String name, ThingSize size) {
+    public Thing(String name, ThingSize folded) {
         this.name = name;
-        this.size1 = size1;
+        this.folded = folded;
     }
 
-    public Thing(String name, ThingSize size, ThingSize size2) {
+    public Thing(String name, ThingSize folded, ThingSize unfolded) {
         this.name = name;
-        this.size1 = size1;
-        this.size2 = size2;
+        this.folded = folded;
+        this.unfolded = unfolded;
     }
 
     public int getMaxSize() {
-        if (size1.getSize() > 0 && size2.getSize() > 0) {
+        if (folded != null && unfolded != null) {
             //math.max porówuje dwie wartosci i zwraca większą wartość
-            return Math.max(size1.getSize(), size2.getSize());
+            return Math.max(folded.getSize(), unfolded.getSize());
         } else {
-            return size1.getSize();
+            return folded.getSize();
         }
     }
 
     public String getName() {
         return this.name;
+    }
+
+    public String toString() {
+        return " - Przedmiot - nazwa: " + getName() + ", objetość: " + getMaxSize();
     }
 }
